@@ -1,5 +1,4 @@
 export default ngModule => {
-
     
     if (ON_TEST) {
         require('./kcd-hello.test')(ngModule);

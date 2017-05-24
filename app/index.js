@@ -1,4 +1,5 @@
-const angular = require('angular');
+import angular from 'angular';
+import registerDirectives from './directives';
 
 if (ON_TEST) {
     require('angular-mocks/angular-mocks');
@@ -6,4 +7,4 @@ if (ON_TEST) {
 
 const ngModule = angular.module('app', []);
 
-require('./directives')(ngModule)
+registerDirectives(ngModule);
