@@ -1,6 +1,6 @@
 var webpack = require('webpack');
 
-module.exports = {
+var config = {
     context: __dirname + '/app',
     entry: './index.js',
     output: {
@@ -20,4 +20,10 @@ module.exports = {
             {test: /\.styl$/, loader: 'style-loader!css-loader!stylus-loader', exclude: /node_modules/},
         ]
     },
+};
+
+if (process.env.NODE_ENV === 'production') {
+    config.output.path = __dirname + '/dist';
 }
+
+module.exports = config;
