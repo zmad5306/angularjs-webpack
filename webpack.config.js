@@ -14,7 +14,7 @@ var config = {
     ],
     module: {
         loaders: [
-            {test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/},
+            {test: /\.js$/, loader: 'ng-annotate-loader!babel-loader', exclude: /node_modules/},
             {test: /\.html$/, loader: 'raw-loader', exclude: /node_modules/},
             {test: /\.css$/, loader: 'style-loader!css-loader', exclude: /node_modules/},
             {test: /\.styl$/, loader: 'style-loader!css-loader!stylus-loader', exclude: /node_modules/},
@@ -24,6 +24,7 @@ var config = {
 
 if (process.env.NODE_ENV === 'production') {
     config.output.path = __dirname + '/dist';
+    config.plugins.push(new webpack.optimize.UglifyJsPlugin({}));
 }
 
 module.exports = config;
